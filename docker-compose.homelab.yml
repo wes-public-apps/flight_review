@@ -1,6 +1,6 @@
 version: "3.3"
 services:
-  flight_review_app:
+  flight_review:
     # image: px4flightreview
     build:
       context: ./app
@@ -10,6 +10,9 @@ services:
       - flight_review_data:/opt/data
       - ${PWD}/app/config_default_homelab.ini:/opt/service/config_default.ini:ro # Absolute for volume a file.
     restart: always
+  
+    ports:
+      - "8083:5006"
 
 volumes:
   flight_review_data:
